@@ -25,3 +25,16 @@ add_action("prefetch", "add_dns_prefetch", 1);
 if(!is_admin()){
     add_filter( 'show_admin_bar', '__return_false' );
 }
+
+/**
+*  It helps to remove many of the old or un-needed items from the head section. 
+*  (can be combined in to the above check for removal of the admin bar)
+*/
+if(!is_admin()){
+    // remove RDS link 
+    remove_action ('wp_head', 'rsd_link');
+    // removes WLW manifest
+    remove_action( 'wp_head', 'wlwmanifest_link');
+    // removes wordpress generator and viersion number
+    remove_action('wp_head', 'wp_generator');
+}
