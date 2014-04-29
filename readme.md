@@ -6,6 +6,8 @@ Within each directory holds a single solution, with below it an example director
 
 1 **DNS Prefetch** is about requesting external DNS resources earlier in the HTML script before the actual script request.
 
+2 **Remove WP Admin Bar** removes the admin bar from the front end.  horrible thing!  So oftern screws up other code. 
+
 
 OK, it's very light on the ground at the moment, but as and when I make more or strip them out of previous projects, I'll add them here. 
 

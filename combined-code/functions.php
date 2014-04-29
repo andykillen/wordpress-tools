@@ -18,3 +18,10 @@ function add_dns_prefetch(){
 }
 
 add_action("prefetch", "add_dns_prefetch", 1);
+
+/**
+* Remove admin bar from front end
+*/
+if(!is_admin()){
+    add_filter( 'show_admin_bar', '__return_false' );
+}
