@@ -7,7 +7,7 @@ function add_dns_prefetch(){
     foreach($checking as $places){
         foreach($GLOBALS[$places]->queue as $item){
             $url = parse_url($GLOBALS[$places]->registered[$item]->src);        
-            if(!in_array( "//".$url['host'], $prefetch_array) && $base['host'] != $url['host'] ){
+            if(isset($url['host']) && !in_array( "//".$url['host'], $prefetch_array) && $base['host'] != $url['host'] ){
                 $prefetch_array[] = "//".$url['host'];
                 echo "<link rel='dns-prefetch' href='//".$url['host']."'>\r\n";                
             }                
