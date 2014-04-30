@@ -12,7 +12,7 @@ Within each directory holds a single solution, with below it an example director
 
 4. **[Login CSS](https://github.com/andykillen/wordpress-tools/blob/master/login-css/code.php)** How to add a CSS file for the login page
 
-5. **[Remove plugin update nag](https://github.com/andykillen/wordpress-tools/blob/master/remove-plugin-update-nag/code.php) If your making your own plugins and don't want your users to ever update from the wordpress repositary, this is a simple method of stopping that.
+5. **[Remove plugin update nag](https://github.com/andykillen/wordpress-tools/blob/master/remove-plugin-update-nag/code.php)** If your making your own plugins and don't want your users to ever update from the wordpress repositary, this is a simple method of stopping that.
 
 OK, it's very light on the ground at the moment, but as and when I make more or strip them out of previous projects, I'll add them here. 
 
