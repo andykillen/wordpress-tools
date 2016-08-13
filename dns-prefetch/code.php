@@ -13,17 +13,29 @@
  * either call it direct in the header.php or use a do_action()/add_action() 
  */
 function add_dns_prefetch(){   
-    $prefetch_array = array(); 
+   $prefetch_array = array(); 
     $checking = array("wp_scripts", "wp_styles");    
-    $base = parse_url(get_bloginfo("url"));    
-    foreach($checking as $places){
+    $base = parse_url(get_bloginfo("url"));          
+    // loop thought wp_styles and wp_scripts
+    foreach($checking as $places){            
         if(isset($GLOBALS[$places]->queue) ){
             foreach($GLOBALS[$places]->queue as $item){
                 $url = parse_url($GLOBALS[$places]->registered[$item]->src);              
+                // check against the script/style loaded
                 if(isset($url['host']) && !in_array( "//".$url['host'], $prefetch_array) && $base['host'] != $url['host'] ){
                     $prefetch_array[] = "//".$url['host'];
                     echo "<link rel='dns-prefetch' href='//".$url['host']."'>\r\n";                
-                }                
+                }
+                // check against dependencies 
+                if(isset($GLOBALS[$places]->registered[$item]->deps) && is_array($GLOBALS[$places]->registered[$item]->deps)){
+                    foreach($GLOBALS[$places]->registered[$item]->deps as $dep){
+                        $url = parse_url($GLOBALS[$places]->registered[$dep]->src); 
+                        if(isset($url['host']) && !in_array( "//".$url['host'], $prefetch_array) && $base['host'] != $url['host'] ){
+                           $prefetch_array[] = "//".$url['host'];
+                           echo "<link rel='dns-prefetch' href='//".$url['host']."'>\r\n";                
+                        }
+                    }
+                }
             }
         }
     }    
