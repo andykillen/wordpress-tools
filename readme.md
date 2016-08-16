@@ -14,5 +14,7 @@ Within each directory holds a single solution, with below it an example director
 
 5. **[Remove plugin update nag](https://github.com/andykillen/wordpress-tools/blob/master/remove-plugin-update-nag/code.php)** If your making your own plugins and don't want your users to ever update from the wordpress repositary, this is a simple method of stopping that.
 
+6. **[Rename URL of multisite db](https://github.com/andykillen/wordpress-tools/blob/master/multisite-renamer/code.php)** Allows you to easily rename all occurrences of a url string in the db for another. Ideal for changing the URL's of a Multi-site install. Yes I know you can use WP-CLI (search-replace) to do this, but I have not always found that to be reliable.
+
 OK, it's very light on the ground at the moment, but as and when I make more or strip them out of previous projects, I'll add them here. 
 
